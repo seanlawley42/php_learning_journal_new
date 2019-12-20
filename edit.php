@@ -3,10 +3,8 @@
 require 'inc/functions.php';
 include 'inc/header.php';
 $title=$date=$time_spent=$learned=$resources='';
-$id= filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-$choice=getJournalEntry($id);
 
-if(isset($_GET[$id])){
+if(isset($_GET[id])){
     list($id, $title, $date, $time_spent, $learned, $resources)=getJournalEntry(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
 }
 

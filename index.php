@@ -24,11 +24,17 @@ if (isset($_POST['delete'])) {
                 <div class="entry-list">
                     <article>
                         <?php foreach(getJournalEntryList() as $journalEntry){
+                             
                              echo "<h2><a href='detail.php?id=".$journalEntry['id']."'>".$journalEntry['title']."</a></h2>";
+                             
                              echo "<time datetime='".$journalEntry['date']."'>".date("F d, Y", strtotime($journalEntry['date']))."</time><br>";
+                             
                              echo "<form method='post' action='index.php' onsubmit=\"return confirm('Are you sure want to delete this entry?');\">";
+                             
                              echo "<input type='hidden' value='".$journalEntry['id']."'  name='delete' />\n";
+                             
                              echo "<input type='submit' class='button--delete' value='Delete'>";
+                             
                              echo "</form>";
                         }?>
                     </article>
